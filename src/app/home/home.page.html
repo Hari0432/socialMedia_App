@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true" >
+  
+  <div id="container">
+    <ion-button [routerLink]="['/', 'home', 'new-page']" routerDirection="forward" routerLinkActive="router-link-active" slot="fixed" vertical="bottom" horizontal="end">
+      Click Here
+    </ion-button>
+  </div>
+  
+</ion-content>

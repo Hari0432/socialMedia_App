@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" [routerLink]="['/', 'home', 'new-page']" routerLinkActive="router-link-active" >
+      <img src="https://img.icons8.com/ios/50/FFFFFF/back--v1.png" style="width: 25px; height: 25px;"/>
+    </ion-button>
+    <ion-title style="font-size: 25px;">Message App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items; let index;">
+      <ion-avatar slot="start">
+        <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
+      </ion-avatar>
+      <ion-label (click)="setOpen(true)" style="font-size: 20px;">{{item}}</ion-label>
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="setOpen(false)">
+                  <img src="https://img.icons8.com/ios/50/FFFFFF/back--v1.png" style="width: 25px; height: 25px;"/>
+                </ion-button>
+              </ion-buttons>
+              <ion-avatar slot="start" style="width: 35px; height: 35px;">
+                <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
+              </ion-avatar>
+              <ion-title>{{item}}</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-item style="width: max-content;">
+              <ion-text>This is {{item}}</ion-text>
+            </ion-item>
+            <ion-list style="float: right; margin-top: 20px; ">
+              <ion-item *ngFor="let text of textList" style="text-align:right; ">
+                <ion-text style="display: block; margin-bottom: 5px; width: fit-content; padding-bottom: 10px;">{{ text }}</ion-text>
+              </ion-item>
+            </ion-list>
+          </ion-content>
+          <ion-footer>
+            <div style="display: flex; padding: 0 0 15px 15px;">
+              <ion-input type="text" [(ngModel)]="textInput" style="background: #1f1f1f; color: #ffffff; width: 85%; border-radius: 10px;"></ion-input>
+              <ion-button fill="clear" (click)="sendText()"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/sent.png" alt="send"></ion-button>
+              </div>
+          </ion-footer>
+          
+        </ng-template>
+      </ion-modal>
+      <ion-text></ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

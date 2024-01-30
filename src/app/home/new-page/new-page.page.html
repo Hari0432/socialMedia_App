@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;">New Posts</ion-title>
+    
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let item of items; let index">
+     <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" [routerLink]="['/', 'home', 'open-image']" routerLinkActive="router-link-active"  width="100%" height="250px"/>
+    <ion-card-header>
+      <ion-card-title>{{item}}</ion-card-title>
+      <div style="display: flex;">
+        <ion-button fill="clear" (click)="likeCount()"><ion-icon name="heart" size="large" style="color: #a52a2a;"></ion-icon></ion-button>
+        
+        <ion-button (click)="openView()" fill="clear"><img src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/visible.png" alt="Views" style="width: 30px; height: 30px;"></ion-button>
+        
+      
+        <ion-button fill="clear" (click)="openModal()"><ion-icon name="share-outline" size="large" style="color: #ffffff;"></ion-icon></ion-button>
+        
+      </div>
+      <ion-card-subtitle>{{like}} Likes</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+    
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="right: 20px; border-radius: 50%; border: none;  background: #ffffff;">
+    <ion-fab-button color="default" style="width: 60px; height: 60px;" [routerLink]="['/', 'home', 'next-page']" routerLinkActive="router-link-active" >
+      <ion-img src="https://icons.veryicon.com/png/o/miscellaneous/fs-icon/live-chat.png" style="width: 40px;"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
